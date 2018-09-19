@@ -6,9 +6,9 @@ package com.lxl.jianzhiOffer.reverseList;
  */
 
 /**
- * Á´±í·´×ª
- * ÀıÈç:1->2->3->4->5->6
- * ·´×ªºó:6->5->4->3->2->1
+ * é“¾è¡¨åè½¬
+ * ä¾‹å¦‚:1->2->3->4->5->6
+ * åè½¬å:6->5->4->3->2->1
  */
 public class Solution {
 
@@ -28,29 +28,29 @@ public class Solution {
         System.out.println(result);
     }
 
-    // Á´±í·´×ª
+    // é“¾è¡¨åè½¬
     public static ListNode ReverseList(ListNode head){
         if(head == null || head.next ==null){
             return head;
         }
-        // ·´×ªºóĞÂµÄÍ·½Úµã
+        // åè½¬åæ–°çš„å¤´èŠ‚ç‚¹
         ListNode newHead = null;
-        // Ç°Çı½Úµã
+        // å‰é©±èŠ‚ç‚¹
         ListNode preNode = null;
-        // µ±Ç°½ÚµãÉèÎªÁÙÊ±½Úµã
+        // å½“å‰èŠ‚ç‚¹è®¾ä¸ºä¸´æ—¶èŠ‚ç‚¹
         ListNode tempNode = head;
         while (tempNode != null){
-            // ºó¼Ì½Úµã(ÕâÀïÓÃÀ´±£´æµ±Ç°½ÚµãµÄÏÂÒ»¸ö½ÚµãµÄÖµ)
+            // åç»§èŠ‚ç‚¹(è¿™é‡Œç”¨æ¥ä¿å­˜å½“å‰èŠ‚ç‚¹çš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹çš„å€¼)
             ListNode nextNode = tempNode.next;
-            // Èç¹û×îºóÒ»¸ö½ÚµãµÄnextÎª¿Õ   Ôò¸Ã½ÚµãÎª·´×ªºóµÃµ½µÄÍ·½Úµã
+            // å¦‚æœæœ€åä¸€ä¸ªèŠ‚ç‚¹çš„nextä¸ºç©º   åˆ™è¯¥èŠ‚ç‚¹ä¸ºåè½¬åå¾—åˆ°çš„å¤´èŠ‚ç‚¹
             if(nextNode == null){
                 newHead = tempNode;
             }
-            // Ç°Çı½ÚµãÎªµ±Ç°½ÚµãµÄÏÂÒ»¸ö½Úµã
+            // å‰é©±èŠ‚ç‚¹ä¸ºå½“å‰èŠ‚ç‚¹çš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
             tempNode.next = preNode;
-            // ½«µ±Ç°½ÚµãÉèÖÃÎª×Ô¼º±¾ÉíµÄÇ°Çı½Úµã
+            // å°†å½“å‰èŠ‚ç‚¹è®¾ç½®ä¸ºè‡ªå·±æœ¬èº«çš„å‰é©±èŠ‚ç‚¹
             preNode = tempNode;
-            // ×Ô¼º±¾ÉíÎª×Ô¼ºµÄºó¼Ì½Úµã
+            // è‡ªå·±æœ¬èº«ä¸ºè‡ªå·±çš„åç»§èŠ‚ç‚¹
             tempNode = nextNode;
         }
         return newHead;
