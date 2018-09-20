@@ -39,7 +39,7 @@ public class Solution {
             }else if(array[row][column] <target){
                 row++;
             }else {
-                // 满足条件   找到该元素 直接返回
+                // 满足条件  找到该元素 直接返回
                 return true;
             }
         }
