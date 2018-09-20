@@ -7,7 +7,8 @@ package com.lxl.jianzhiOffer.reverseList;
 
 /**
  * 链表反转
- * 例如:1->2->3->4->5->6
+ * 例如:
+ * 反转前:1->2->3->4->5->6
  * 反转后:6->5->4->3->2->1
  */
 public class Solution {
