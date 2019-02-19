@@ -1,5 +1,7 @@
 package com.needayea.leetcode;
 
+import com.sun.tools.corba.se.idl.InterfaceGen;
+
 import java.util.HashMap;
 
 /**
@@ -16,7 +18,9 @@ import java.util.HashMap;
  */
 public class TwoNumberSum {
     public int[] twoSum(int[] nums, int target) {
-        // 空间换时间
+        // 空间换时间  遍历  将数组中的元素作为哈希表的key存入表
+        // 如果目标数据-当前下标数组元素的值存在哈希表的key集合中
+        // 则说明存在这样两个数据
         HashMap<Integer,Integer> map = new HashMap<>();
         for(int i = 0 ;i<nums.length;i++){
             int complent = target - nums[i];
