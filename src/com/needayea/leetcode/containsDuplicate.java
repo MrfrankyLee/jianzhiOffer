@@ -1,5 +1,6 @@
 package com.needayea.leetcode;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,6 +33,25 @@ public class containsDuplicate {
             if(!result){
                 return true;
             }
+        }
+        return false;
+    }
+
+    public boolean containsDuplicate2(int[] nums) {
+        if(nums.length<=1){
+            return false;
+        }
+        // 对数组进行排序   如果有重复数字 其必然是相邻的元素
+        Arrays.sort(nums);
+        int value = nums[1];
+        if(nums[0] == value){
+            return true;
+        }
+        for(int i =2 ;i<nums.length;i++){
+            if(nums[i]== value){
+                return true;
+            }
+            value = nums[i];
         }
         return false;
     }
