@@ -18,14 +18,13 @@ public class TwoNumberSum {
     public int[] twoSum(int[] nums, int target) {
         // 空间换时间
         HashMap<Integer,Integer> map = new HashMap<>();
-        for(int i = 0 ; i<nums.length;i++){
+        for(int i = 0 ;i<nums.length;i++){
             int complent = target - nums[i];
             if(map.containsKey(complent)){
                 return new int[]{map.get(complent),i};
             }
             map.put(nums[i],i);
         }
-
         throw new IllegalArgumentException("不存在满足条件的数据");
     }
 }
