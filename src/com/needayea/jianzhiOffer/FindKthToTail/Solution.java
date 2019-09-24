@@ -13,29 +13,29 @@ package com.needayea.jianzhiOffer.FindKthToTail;
  *     3.快慢指针一起走   当快指针到达最后一个节点时    慢指针刚好位于倒数第k个节点
  */
 public class Solution {
-    public ListNode FindKthToTail(ListNode head,int k) {
+    public ListNode findKthToTail(ListNode head,int k) {
         if(head == null  || k <=0){
             return null;
         }
         // 先走的快指针
-        ListNode pre = head;
+        ListNode fast = head;
         //后走的慢指针
-        ListNode last = head;
+        ListNode slow = head;
         // 快指针先走k-1个节点
         for(int i = 0; i<k-1;i++){
-            if(pre.next != null){
-                pre = pre.next;
+            if(fast.next != null){
+                fast = fast.next;
             }else {
                 return null;
             }
         }
 
         //两个指针一起走  快指针先到达最后一个节点  此时慢指针所在位置即为倒数第k个节点
-        while (pre.next!=null){
-            pre = pre.next;
-            last = last.next;
+        while (fast.next!=null){
+            fast = fast.next;
+            slow = slow.next;
         }
-        return last;
+        return slow;
     }
 }
 
