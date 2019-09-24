@@ -26,23 +26,26 @@ public class Solution {
 
     public static void main(String[] args) {
         int[][] array ={{1,2,3,4},{5,6,7,8},{9,10,11,12}};
-        boolean result = Find(10,array);
+        boolean result = find(10,array);
         System.out.println(result);
     }
 
-    public static boolean Find(int target, int [][] array) {
-        int row =  0;
-        int column = array[0].length-1;
-        while (column>=0 && row<array.length ) {
+    public static boolean find(int target,int[][] array){
+        boolean flag = false;
+        if(array == null || array.length<1){
+            return flag;
+        }
+        int row = 0;
+        int column = array[0].length;
+        while(row<array.length && column>=0){
             if(array[row][column] > target){
                 column--;
-            }else if(array[row][column] <target){
+            }else if(array[row][column] < target){
                 row++;
             }else {
-                // 满足条件  找到该元素 直接返回
                 return true;
             }
         }
-        return false;
+        return flag;
     }
 }
