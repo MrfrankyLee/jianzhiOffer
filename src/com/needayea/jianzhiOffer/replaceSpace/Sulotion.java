@@ -30,29 +30,24 @@ public class Sulotion {
     }
 
     public static String ReplaceSpace(StringBuffer str){
-        // 统计原字符串中的空格个数
         int spaceNumber = 0;
-        for(int i = 0 ;i<str.length();i++){
-            if(str.charAt(i) == ' '){
+        for(int i = 0;i<str.length();i++){
+            if(str.charAt(i)== ' '){
                 spaceNumber++;
             }
         }
-        // 如果原来的字符串中没有空格  则直接返回原字符串
-        if(spaceNumber==0)return str.toString();
-        // 原字符串下标最大值
+        if(spaceNumber == 0 ){
+            return str.toString();
+        }
         int indexOld = str.length()-1;
-        // 替换后的新字符串下标最大值
-        int indexNew = str.length()+spaceNumber*2 -1 ;
-        //设置新字符串替换空格后的长度
+        int indexNew = str.length() + spaceNumber * 2 - 1;
         str.setLength(indexNew+1);
         for(;indexOld>=0;--indexOld){
-            // 如果原字符串中的字符为空格  则替换
-            if(str.charAt(indexOld) ==' '){
+            if(str.charAt(indexOld) == ' '){
                 str.setCharAt(indexNew--,'%');
                 str.setCharAt(indexNew--,'0');
                 str.setCharAt(indexNew--,'2');
-            }else{
-                // 如果原字符串中的长度不为空格   则直接赋值到新串位置
+            }else {
                 str.setCharAt(indexNew--,str.charAt(indexOld));
             }
         }
