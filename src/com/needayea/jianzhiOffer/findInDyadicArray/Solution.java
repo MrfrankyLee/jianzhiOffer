@@ -26,7 +26,7 @@ public class Solution {
 
     public static void main(String[] args) {
         int[][] array ={{1,2,3,4},{5,6,7,8},{9,10,11,12}};
-        boolean result = find(10,array);
+        boolean result = find(13,array);
         System.out.println(result);
     }
 
@@ -36,7 +36,7 @@ public class Solution {
             return flag;
         }
         int row = 0;
-        int column = array[0].length;
+        int column = array[0].length-1;
         while(row<array.length && column>=0){
             if(array[row][column] > target){
                 column--;
