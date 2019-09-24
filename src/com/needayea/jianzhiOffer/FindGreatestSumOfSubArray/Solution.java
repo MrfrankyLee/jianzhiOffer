@@ -7,7 +7,8 @@ import java.util.List;
 /**
  * @author lixiaole
  * @date 2018/9/26
- * @description 连续子数组的最大和
+ * @description
+ * 连续子数组的最大和
  * 原题: HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:
  *      在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。
  *      但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？
@@ -29,12 +30,14 @@ public class Solution {
           return 0;
       }
       List<Integer> list = new ArrayList<Integer>();
-      for(int i = 0 ; i<array.length;i++){ // i用来控制累加的起始位置
+        // i用来控制累加的起始位置
+      for(int i = 0 ; i<array.length;i++){
           int sum = 0;
           // 从下标为0的位置开始 累加  i每增加1 开始位置后退一位
           for(int j = i;j<array.length;j++){
               sum +=array[j];
-              list.add(sum); //每加一个元素  就将它的值存到list集合
+              //每加一个元素  就将它的值存到list集合
+              list.add(sum);
           }
       }
       // 对list集合中的元素进行排序  最后一个元素就是累加最大的值
