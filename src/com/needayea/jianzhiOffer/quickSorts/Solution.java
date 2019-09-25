@@ -51,26 +51,32 @@ public class Solution {
     }
 
     public int partion(int[] arr , int left , int right){
-        int pvtion = arr[left]; //以数组中最左边的数字作为基准
+        //以数组中最左边的数字作为基准
+        int pvtion = arr[left];
         while (left<right){
             while (arr[right] > pvtion && left<right ){
-                right--;//当右边的哨兵位置上的数字大于基准数字  哨兵左移  直达哨兵到达位于从右边开始第一个小于基准的数字
+                //当右边的哨兵位置上的数字大于基准数字  哨兵左移  直达哨兵到达位于从右边开始第一个小于基准的数字
+                right--;
             }
             if(left<right){
                 // 把最右边第一个小于基准的数字换到最左边位置
                 // 因为我们以最左边的哨兵为基准 ,所以直接赋值到该哨兵位置
-                arr[left++] = arr[right];//类似于 arr[left] = arr[right];left++;
+                //类似于 arr[left] = arr[right];left++;
+                arr[left++] = arr[right];
             }
 
             while (arr[left] < pvtion && left<right){
-                left++;//当左边的哨兵位置上的数字小于基准数字  哨兵右移  直达哨兵到达位于从左边开始第一个大于基准的数字
+                    //当左边的哨兵位置上的数字小于基准数字  哨兵右移  直达哨兵到达位于从左边开始第一个大于基准的数字
+                    left++;
             }
             if(left<right){
-                arr[right--] = arr[left];//把该大于基准的数字的换到右边
+                //把该大于基准的数字的换到右边
+                arr[right--] = arr[left];
             }
         }
-        arr[left] = pvtion;//把基准数字放在中间位置
-        return left;// 返回中间位置的下标
+        //把基准数字放在调换后中间位置 它的左边数字小于它 右边数字大于它
+        arr[left] = pvtion;
+        // 返回中间位置的下标
+        return left;
     }
-
 }
