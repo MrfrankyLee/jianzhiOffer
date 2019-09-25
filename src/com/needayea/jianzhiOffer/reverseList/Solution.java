@@ -1,9 +1,5 @@
 package com.needayea.jianzhiOffer.reverseList;
 
-/**
- * @author lixiaole
- * @date 2018/9/19 17:08
- */
 
 /**
  * 链表反转
@@ -25,7 +21,7 @@ public class Solution {
         listNode3.next = listNode4;
         listNode4.next = listNode5;
         listNode5.next = listNode6;
-        ListNode result = ReverseList(listNode1);
+        ListNode result = ReverseList2(listNode1);
         System.out.println(result);
     }
 
@@ -55,6 +51,25 @@ public class Solution {
             tempNode = nextNode;
         }
         return newHead;
+    }
+
+    public static ListNode ReverseList2(ListNode head){
+       if(head == null || head.next == null){
+           return head;
+       }
+       ListNode  pre = null;
+       while(head != null){
+           // 1.记录当前节点的下一个节点
+           ListNode next = head.next;
+           // 2.当前节点的下一个节点为其前驱节点
+           head.next = pre;
+           // 3.自己本身节点
+           pre = head;
+
+           // 3.当前节点为第一步记录的next节点
+           head = next;
+       }
+       return pre;
     }
 }
 
