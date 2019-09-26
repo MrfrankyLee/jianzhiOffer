@@ -5,6 +5,8 @@ package com.needayea.jianzhiOffer.TreeMirror;
  * @date 2018/9/26
  */
 
+import com.needayea.jianzhiOffer.util.TreeNode;
+
 /**
  * 操作给定的二叉树，将其变换为源二叉树的镜像。
  * 输入描述:
@@ -29,7 +31,9 @@ package com.needayea.jianzhiOffer.TreeMirror;
  */
 public class Solution {
     public void Mirror(TreeNode root){
-        if(root == null || (root.left ==null && root.right ==null)) return;
+        if(root == null || (root.left ==null && root.right ==null)){
+            return;
+        }
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
@@ -40,13 +44,19 @@ public class Solution {
             Mirror(root.right);
         }
     }
-}
 
-class TreeNode{
-    int val ;
-    TreeNode left = null;
-    TreeNode right = null;
-    public TreeNode(int val) {
-        this.val = val;
+    public void Mirror1(TreeNode root){
+        if(root == null || (root.left==null && root.right == null)){
+            return;
+        }
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        if(root.left != null){
+            Mirror1(root.left);
+        }
+        if(root.right != null){
+            Mirror1(root.right);
+        }
     }
 }
