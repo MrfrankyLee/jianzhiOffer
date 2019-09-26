@@ -23,7 +23,7 @@ package com.needayea.jianzhiOffer.NumberOf1;
 public class NumberOf1 {
     public static void main(String[] args) {
         NumberOf1 n = new NumberOf1();
-        System.out.println(n.NumberOf1(-8));
+        System.out.println(n.NumberOf1(8));
     }
     public int NumberOf1(int number){
         int count = 0;
