@@ -5,6 +5,8 @@ package com.needayea.jianzhiOffer.FindKthToTail;
  * @date 2018/9/25
  */
 
+import com.needayea.jianzhiOffer.util.ListNode;
+
 /**
  * 输入一个链表，输出该链表中倒数第k个结点。
  * 思考：
@@ -13,37 +15,24 @@ package com.needayea.jianzhiOffer.FindKthToTail;
  *     3.快慢指针一起走   当快指针到达最后一个节点时    慢指针刚好位于倒数第k个节点
  */
 public class Solution {
-    public ListNode findKthToTail(ListNode head,int k) {
-        if(head == null  || k <=0){
-            return null;
+    public ListNode findKthNode(ListNode head , int k){
+        if(head == null || k <1){
+            return head;
         }
-        // 先走的快指针
-        ListNode fast = head;
-        //后走的慢指针
-        ListNode slow = head;
-        // 快指针先走k-1个节点
-        for(int i = 0; i<k-1;i++){
-            if(fast.next != null){
-                fast = fast.next;
-            }else {
+        ListNode pFastNode = head;
+        ListNode pSlowNode = head;
+        int count = 1;
+        while (count < k){
+            if(pFastNode.next == null){
                 return null;
             }
+            pFastNode = pFastNode.next;
+            count++;
         }
-
-        //两个指针一起走  快指针先到达最后一个节点  此时慢指针所在位置即为倒数第k个节点
-        while (fast.next!=null){
-            fast = fast.next;
-            slow = slow.next;
+        while(pFastNode.next != null){
+            pFastNode = pFastNode.next;
+            pSlowNode = pSlowNode.next;
         }
-        return slow;
-    }
-}
-
-class ListNode{
-    int val;
-    ListNode next =null;
-
-    public ListNode(int val) {
-        this.val = val;
+        return pSlowNode;
     }
 }
