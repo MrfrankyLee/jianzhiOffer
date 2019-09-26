@@ -8,10 +8,8 @@ package com.needayea.jianzhiOffer.Power;
 //给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
 public class Solution{
     public static void main(String[] args) throws Exception {
-        double a = Power(2,2);
+        double a = Power2(-2,2);
         System.out.println(a);
-
-        System.out.println(0>>1);
     }
     public static double Power(double base, int exponent) throws Exception {
         double result = 1;
@@ -24,5 +22,18 @@ public class Solution{
             result *= base;
         }
         return exponent > 0 ? result : 1/result;
+    }
+
+    public static double Power2(double base, int exponent){
+        if(base == 0){
+            return 0;
+        }
+        double result = 1.0;
+        int length = exponent < 0 ? -exponent: exponent;
+        for(int i = 1; i<= length ;i++){
+            result *= base;
+        }
+
+        return result = exponent < 0 ? 1/result: result ;
     }
 }
