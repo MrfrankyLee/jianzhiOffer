@@ -23,26 +23,29 @@ public class Solution {
         if(sequence ==null || sequence.length<=0){
             return false;
         }
-        return VerifySquenceOfBST(sequence,0,sequence.length-1);
+        return veryfySquenceOfBst(sequence,0,sequence.length-1);
     }
 
-    private boolean VerifySquenceOfBST(int[] sequence, int start, int end) {
-        if(start<=end){
+    private boolean veryfySquenceOfBst(int[] sequence, int start , int end){
+        if(start >= end){
             return true;
         }
-        //找到右子树起始节点在数组中的位置 该位置前面的所有节点都属于左子树的节点
-        for(;start<end;start++){
+        // 左子树
+        while (start < end){
             if(sequence[start] > sequence[end]){
                 break;
             }
+            start++;
         }
-        //遍历右子树  只要其中任何一个数字小于根节点  就返回false
-        for(int i = start ;i<end;i++){
-            if(sequence[i] < sequence[end]){
+
+        // 右子树
+        int k = start;
+        while(k < end){
+            if(sequence[k] < sequence[end]){
                 return false;
             }
+            k++;
         }
-        //递归遍历左右子树的序列
-        return VerifySquenceOfBST(sequence,0,start-1) && VerifySquenceOfBST(sequence,start,end-1);
+        return veryfySquenceOfBst(sequence,0,start-1) && veryfySquenceOfBst(sequence,start,end-1);
     }
 }
