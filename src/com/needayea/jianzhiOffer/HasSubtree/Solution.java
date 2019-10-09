@@ -12,27 +12,30 @@ import com.needayea.jianzhiOffer.util.TreeNode;
  */
 public class Solution {
 
-    public boolean hasSubTree(TreeNode root1 , TreeNode root2){
-        if(root2 == null || root1 == null){
+    public boolean hasSubTreeNode(TreeNode root1 , TreeNode root2){
+        if(root1 == null || root2 == null){
             return false;
         }
         boolean flag = false;
+
         if(root1.val == root2.val){
-            flag = match(root1,root2);
+            return match(root1,root2);
         }
-        return flag ? flag :hasSubTree(root1.left,root2) || hasSubTree(root1.right , root2);
+        return flag ? flag : hasSubTreeNode(root1.left,root2) || hasSubTreeNode(root1.right,root2);
     }
 
-    private boolean match(TreeNode root1 , TreeNode root2){
+    public boolean match(TreeNode root1 , TreeNode root2){
         if(root2 == null){
             return true;
         }
         if(root1 == null){
             return false;
         }
+
         if(root1.val == root2.val){
             return match(root1.left,root2.left) && match(root1.right,root2.right);
         }
+
         return false;
     }
 }
